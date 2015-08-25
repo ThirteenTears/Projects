@@ -45,11 +45,10 @@ public class lab0a {
 			i++;
 		}		
 		strOutput = strOutput.concat(" = " + total);
-		System.out.println(strOutput);
+		System.out.println(strOutput + "\n" + "\n");
 		
 		//Code for requirement B.
 		i = 1;
-		
 		//Error check user's input.
 		while(tryCatch == false)
 		{
@@ -76,9 +75,7 @@ public class lab0a {
 			}
 		}
 		tryCatch = false;
-		
 		strOutput = "";
-		System.out.println("\n");
 		while(i <= inputvalue + 1)
 		{
 			if(counter == inputvalue2 || i == inputvalue + 1)
@@ -99,7 +96,7 @@ public class lab0a {
 			counter++;
 			i++;
 		}
-		
+		System.out.println("\n");
 		
 		//Code for requirement C.
 		inputvalue = 0;
@@ -107,9 +104,7 @@ public class lab0a {
 		int smallValue = 9999999;
 		int largeValue = 0;
 		int l = 0;
-		strOutput = "";
-		System.out.println("\n");
-		
+		strOutput = "";	
 		
 		do{
 			//Error catch user's input.
@@ -135,7 +130,6 @@ public class lab0a {
 			}
 			if(inputvalue > 0)
 			{
-				System.out.println(inputvalue);
 				if(strOutput.length() > 0)
 				{
 					strOutput = strOutput.concat(" + " + Integer.toString(inputvalue));
@@ -150,9 +144,9 @@ public class lab0a {
 			
 		}
 		while(inputvalue >= 0);
-		System.out.println("\n" + "The sum of all the values is as follows: " + "\n" + strOutput + " = " + total);
+		System.out.println("The sum of all the values is as follows: " + "\n" + "\n" + strOutput + " = " + total + "\n");
 		System.out.println("The smallest number among the inputs is: " + smallValue);
-		System.out.println("The largest number among the inputs is: " + largeValue);
+		System.out.println("The largest number among the inputs is: " + largeValue + "\n");
 		
 		//Code for Requirement D.
 		strOutput = JOptionPane.showInputDialog(null, "Please enter all your integers, seperated by any character.");
@@ -180,16 +174,18 @@ public class lab0a {
 		}
 		strOutput = strOutput.concat(" = " + total);	
 		
-		System.out.println("\n" + "The sum of all the value's input is as follows:");
+		System.out.println("\n" + "The sum of all the value's input is as follows:" + "\n");
 		System.out.println(strOutput);
 		System.out.println("\n" + "The smallest number among the inputs is: " + smallValue);
-		System.out.println("The largest value among the inputs is: " + largeValue);		
+		System.out.println("The largest value among the inputs is: " + largeValue + "\n");		
 		
 		//Code for Requirement E.
 				tryCatch = false;
 				total = 0;
 				counter = 0;
 				int a = 0;
+				smallValue = 0;
+				largeValue = 0;
 				strOutput = JOptionPane.showInputDialog(null, "Please enter all your integers, seperated by a space.");
 				String[] intsToParse = strOutput.split(" ");
 				int[] info = new int[intsToParse.length];
@@ -197,6 +193,14 @@ public class lab0a {
 				//Goes through array 'info' and prints all values not equal to 0.
 				for (i = 0; i < info.length; i++)
 				{
+					if(smallValue > Integer.parseInt(aarray[i]))
+					{
+						smallValue = Integer.parseInt(aarray[i]);
+					}
+					if(largeValue < Integer.parseInt(aarray[i]))
+					{
+						largeValue = Integer.parseInt(aarray[i]);
+					}
 					try
 					{
 						if(Integer.parseInt(intsToParse[i]) != 0)
@@ -222,19 +226,20 @@ public class lab0a {
 					a = 0;
 				}
 				strOutput = strOutput.concat(" = " + total);
-				System.out.println("\n" + "The sum of all the value's input is as follows:");
+				System.out.println("\n" + "The sum of all the value's input is as follows:" + "\n");
 				System.out.println(strOutput + "\n");
 				if(counter == 0)
 				{
 					System.out.println("There were no errors in this input!");
 				}else if(counter == 1)
 				{
-					System.out.println("There was 1 error in this input!");
+					System.out.println("There was 1 input error in the data provided!");
 				}else
 				{
-					System.out.println("There were " + counter + " errors in this input!");
+					System.out.println("There were " + counter + " input errors in the data provided!" + "\n");
 				}
-				
+				System.out.println("\n" + "The smallest number among the inputs is: " + smallValue);
+				System.out.println("The largest value among the inputs is: " + largeValue + "\n");
 				
 				
 	}
