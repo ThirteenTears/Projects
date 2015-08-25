@@ -186,16 +186,15 @@ public class lab0a {
 		System.out.println("The largest value among the inputs is: " + largeValue);		
 		
 		//Code for Requirement E.
-				strOutput = JOptionPane.showInputDialog(null, "Please enter all your integers, seperated by a space.");
 				tryCatch = false;
+				total = 0;
 				counter = 0;
 				int a = 0;
-				String[] intsToParse = null;
-				intsToParse = strOutput.split(" ");
-				
-				
-
+				strOutput = JOptionPane.showInputDialog(null, "Please enter all your integers, seperated by a space.");
+				String[] intsToParse = strOutput.split(" ");
 				int[] info = new int[intsToParse.length];
+				strOutput = "";
+				//Goes through array 'info' and prints all values not equal to 0.
 				for (i = 0; i < info.length; i++)
 				{
 					try
@@ -204,9 +203,16 @@ public class lab0a {
 						{
 							a++;
 							info[a] = Integer.parseInt(intsToParse[i]);
-							System.out.println(info[a]);
+							total = total + info[a];
+							if(strOutput == "")
+							{
+								strOutput = strOutput.concat(Integer.toString(info[a]));
+							}
+							else
+							{
+								strOutput = strOutput.concat(" + " + info[a]);
+							}
 						}
-						
 					}
 					catch(Exception err)
 					{
@@ -214,7 +220,22 @@ public class lab0a {
 						counter++;
 					}
 					a = 0;
-					//Test change.
 				}
+				strOutput = strOutput.concat(" = " + total);
+				System.out.println("\n" + "The sum of all the value's input is as follows:");
+				System.out.println(strOutput + "\n");
+				if(counter == 0)
+				{
+					System.out.println("There were no errors in this input!");
+				}else if(counter == 1)
+				{
+					System.out.println("There was 1 error in this input!");
+				}else
+				{
+					System.out.println("There were " + counter + " errors in this input!");
+				}
+				
+				
+				
 	}
 }
