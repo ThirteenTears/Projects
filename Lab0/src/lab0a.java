@@ -214,6 +214,7 @@ public class lab0a {
 						counter++;
 					}
 					a = 0;
+					//Test change.
 				}
 	}
 }
