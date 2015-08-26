@@ -3,10 +3,8 @@ import javax.swing.JOptionPane;
  * Lab 0-A Written by Caleb Smith 8/24/2015, CS - 250
  */
 public class lab0a {
-
 	public static void main(String[] args) {
 		// Code to complete requirement A.
-		
 		//Declaration of Variables.
 		int i = 1;
 		int total = 0;
@@ -44,8 +42,10 @@ public class lab0a {
 			total = total + i;
 			i++;
 		}		
+		//Print output to user.
 		strOutput = strOutput.concat(" = " + total);
 		System.out.println(strOutput + "\n" + "\n");
+		
 		
 		//Code for requirement B.
 		i = 1;
@@ -75,6 +75,7 @@ public class lab0a {
 			}
 		}
 		tryCatch = false;
+		//
 		strOutput = "";
 		while(i <= inputvalue + 1)
 		{
@@ -103,7 +104,6 @@ public class lab0a {
 		total = 0;
 		int smallValue = 9999999;
 		int largeValue = 0;
-		int l = 0;
 		strOutput = "";	
 		
 		do{
@@ -183,64 +183,65 @@ public class lab0a {
 				tryCatch = false;
 				total = 0;
 				counter = 0;
-				int a = 0;
-				smallValue = 0;
+				smallValue = 9999999;
 				largeValue = 0;
 				strOutput = JOptionPane.showInputDialog(null, "Please enter all your integers, seperated by a space.");
 				String[] intsToParse = strOutput.split(" ");
 				int[] info = new int[intsToParse.length];
 				strOutput = "";
 				//Goes through array 'info' and prints all values not equal to 0.
-				for (i = 0; i < info.length; i++)
+				
+				for(i = 0; i < info.length; i++)
 				{
-					if(smallValue > Integer.parseInt(aarray[i]))
-					{
-						smallValue = Integer.parseInt(aarray[i]);
-					}
-					if(largeValue < Integer.parseInt(aarray[i]))
-					{
-						largeValue = Integer.parseInt(aarray[i]);
-					}
 					try
 					{
-						if(Integer.parseInt(intsToParse[i]) != 0)
+						info[i] = Integer.parseInt(intsToParse[i]);
+						if(info[i] < 0)
 						{
-							a++;
-							info[a] = Integer.parseInt(intsToParse[i]);
-							total = total + info[a];
-							if(strOutput == "")
-							{
-								strOutput = strOutput.concat(Integer.toString(info[a]));
-							}
-							else
-							{
-								strOutput = strOutput.concat(" + " + info[a]);
-							}
+							info[i] = 0;
+						}
+						if(smallValue > info[i] && info[i] > 0)
+						{
+							smallValue = info[i];
+						}
+						if(largeValue < info[i])
+						{
+							largeValue = info[i];
 						}
 					}
 					catch(Exception err)
 					{
-						tryCatch = true;
 						counter++;
 					}
-					a = 0;
+					total = total + info[i];
+					if(info[i] != 0 && i > 0)
+					{
+						strOutput = strOutput.concat(" + " + Integer.toString(info[i]));
+					}
+					else if(info[i] != 0)
+					{
+						strOutput = strOutput.concat(Integer.toString(info[i]));
+					}
 				}
 				strOutput = strOutput.concat(" = " + total);
-				System.out.println("\n" + "The sum of all the value's input is as follows:" + "\n");
+				System.out.println("\n" + "The sum of all the values input is as follows:" + "\n");
 				System.out.println(strOutput + "\n");
-				if(counter == 0)
+				if(counter >= 1)
 				{
-					System.out.println("There were no errors in this input!");
-				}else if(counter == 1)
+					if(counter == 1)
+					{
+						System.out.println("There was 1 input error in the data provided!");
+					}
+					else
+					{
+						System.out.println("There were no input errors in the data provided!");
+					}
+				}
+				else
 				{
-					System.out.println("There was 1 input error in the data provided!");
-				}else
-				{
-					System.out.println("There were " + counter + " input errors in the data provided!" + "\n");
+					System.out.println("There were " + counter + " input errors in the data provided!");
 				}
 				System.out.println("\n" + "The smallest number among the inputs is: " + smallValue);
-				System.out.println("The largest value among the inputs is: " + largeValue + "\n");
-				
-				
-	}
+				System.out.println("The largest number among the inputs is: " + largeValue);
+	}	
 }
