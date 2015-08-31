@@ -9,7 +9,9 @@ public class Lab1c {
 		int intPrincipal = 0;
 		double dblInterestRate = 0;
 		double dblMonthlyPayment = 0;
+		double dblPrincipalCounter = 0;
 		boolean blCorrectInput = false;
+		int intMonth = 0;
 		inputValue = Integer.parseInt(JOptionPane.showInputDialog("Please type in an interger value."));
 		
 		for(int testValue =3; testValue <= inputValue; testValue++)
@@ -70,14 +72,34 @@ public class Lab1c {
 			{
 				dblMonthlyPayment = Integer.parseInt(JOptionPane.showInputDialog("Please type in the Monthly Payment amount."));
 				blCorrectInput = true;
+				if(dblMonthlyPayment < 500 || dblMonthlyPayment > 2000)
+				{
+					blCorrectInput = false;
+				}
 			}
 			catch(Exception err)
 			{
-				JOptionPane.showMessageDialog(null, "Please enter a valid integer value.");
+				JOptionPane.showMessageDialog(null, "Please enter a valid number value.");
 			}
 		}
 		blCorrectInput = false;
 		
+		dblInterestRate = dblInterestRate / 100;
+		dblPrincipalCounter = intPrincipal;
+		System.out.println("\tInterest Rate\tPrincipal\tMonthlyPayment");
+		System.out.println("\t" + dblInterestRate + "\t" + intPrincipal + "\t" + dblMonthlyPayment);
 		
+		for(int i = 0; i < 30; i++)
+		{
+			if(dblPrincipalCounter <= 0)
+			{
+				break;
+			}
+			intMonth++;
+			dblPrincipalCounter = (dblPrincipalCounter * (dblInterestRate + 1)) - dblMonthlyPayment;
+			System.out.println(dblPrincipalCounter);
+			
+			
+		}
 	}
 }
