@@ -5,10 +5,9 @@ import java.io.FileNotFoundException;
 public class Lab1b {
 	/*
 	 * Lab 0-A Written by Caleb Smith 8/31/2015, CS - 250
-	 * 
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
-		// TODO Auto-generated method stub
+		//Declare Variables.
 		File inputfile = new File("inp.dat");
 		Scanner infile = new Scanner(inputfile);
 		int value;

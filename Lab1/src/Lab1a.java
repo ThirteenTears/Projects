@@ -8,8 +8,8 @@ import java.io.PrintWriter;
 
 public class Lab1a {
 	public static void main(String[] args) throws Exception { //bunting the exception to the caller of this method
+		//Declare Variables.
 		Random generator = new Random();
-		
 		File inputfile = new File("inp.dat");
 		PrintWriter prt = new PrintWriter(inputfile);
 		
