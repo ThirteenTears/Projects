@@ -35,7 +35,7 @@ public class lab0a {
 			if(i < inputvalue)
 				System.out.print(" + ");
 			else
-				System.out.print(" = " + total);
+				System.out.print(" = " + total + "\n");
 			i++;
 		}while(i <= inputvalue);
 		
