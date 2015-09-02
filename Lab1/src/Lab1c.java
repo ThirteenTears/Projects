@@ -1,4 +1,5 @@
 import javax.swing.JOptionPane;
+import java.text.*;
 
 public class Lab1c {
 	/*
@@ -84,22 +85,25 @@ public class Lab1c {
 		}
 		blCorrectInput = false;
 		
+		DecimalFormat df = new DecimalFormat("#.##");
 		dblInterestRate = dblInterestRate / 100;
 		dblPrincipalCounter = intPrincipal;
 		System.out.println("\tInterest Rate\tPrincipal\tMonthlyPayment");
 		System.out.println("\t" + dblInterestRate + "\t" + intPrincipal + "\t" + dblMonthlyPayment);
-		
-		for(int i = 0; i < 30; i++)
+		double dblBalance = dblPrincipalCounter;
+		for(int i = 1; i <= 30; i++)
 		{
-			if(dblPrincipalCounter <= 0)
+			if(dblBalance <= 0)
 			{
 				break;
 			}
 			intMonth++;
-			dblPrincipalCounter = (dblPrincipalCounter * (dblInterestRate + 1)) - dblMonthlyPayment;
-			System.out.println(dblPrincipalCounter);
+			//System.out.print(intMonth + " " + df.format(dblBalance) + " " + df.format((dblBalance * dblInterestRate)) + " " + df.format(dblMonthlyPayment) + " " + df.format((dblMonthlyPayment - (dblBalance * dblInterestRate))) + "\n");
 			
+			System.out.format(" %5d" + " %10.2f" + " %10.2f" + " %10.2f" + " %10.2f%n", intMonth, dblBalance, (dblBalance * dblInterestRate), dblMonthlyPayment, (dblMonthlyPayment - (dblBalance * dblInterestRate)));
 			
+			dblBalance = (dblBalance * (dblInterestRate + 1) - dblMonthlyPayment);
+			//System.out.format(" %5d", i);
 		}
 	}
 }
