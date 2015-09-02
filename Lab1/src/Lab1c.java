@@ -84,26 +84,27 @@ public class Lab1c {
 			}
 		}
 		blCorrectInput = false;
-		
-		DecimalFormat df = new DecimalFormat("#.##");
 		dblInterestRate = dblInterestRate / 100;
 		dblPrincipalCounter = intPrincipal;
-		System.out.println("\tInterest Rate\tPrincipal\tMonthlyPayment");
-		System.out.println("\t" + dblInterestRate + "\t" + intPrincipal + "\t" + dblMonthlyPayment);
+		System.out.format(" %20s" + " %15s" + " %20s%n","Interest Rate", "Principal", "Monthly Payment");
+		System.out.format(" %15s" + " %20s" + " %20s%n%n", Double.toString((dblInterestRate * 100)) + "%", "$" + Double.toString(intPrincipal), "$" + Double.toString(dblMonthlyPayment));
+		System.out.format(" %5s %10s %10s %10s %10s%n%n", "Month", "Balance($)", "Interest($)", "Payment($)", "Payment on Pinciple($)");
 		double dblBalance = dblPrincipalCounter;
 		for(int i = 1; i <= 30; i++)
 		{
 			if(dblBalance <= 0)
 			{
+				System.out.println(" \n" + "You can pay off the principal in " + intMonth + " months!");
+				dblBalance = 0;
 				break;
 			}
-			intMonth++;
-			//System.out.print(intMonth + " " + df.format(dblBalance) + " " + df.format((dblBalance * dblInterestRate)) + " " + df.format(dblMonthlyPayment) + " " + df.format((dblMonthlyPayment - (dblBalance * dblInterestRate))) + "\n");
-			
-			System.out.format(" %5d" + " %10.2f" + " %10.2f" + " %10.2f" + " %10.2f%n", intMonth, dblBalance, (dblBalance * dblInterestRate), dblMonthlyPayment, (dblMonthlyPayment - (dblBalance * dblInterestRate)));
-			
-			dblBalance = (dblBalance * (dblInterestRate + 1) - dblMonthlyPayment);
-			//System.out.format(" %5d", i);
+			intMonth++;			
+			System.out.format(" %2d" + " %10.2f" + " %10.2f" + " %12.2f" + " %15.2f%n", intMonth, dblBalance, (dblBalance * (dblInterestRate / 12)), dblMonthlyPayment, (dblMonthlyPayment - (dblBalance * (dblInterestRate / 12))));
+			dblBalance = (dblBalance * ((dblInterestRate / 12) + 1) - dblMonthlyPayment);
+		}
+		if(dblBalance > 0)
+		{
+			System.out.println("\n" + "You will need more than 30 months to pay off the principal.");
 		}
 	}
 }
