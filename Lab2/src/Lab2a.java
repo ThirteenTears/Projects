@@ -46,16 +46,21 @@ public class Lab2a {
 			
 		}
 		int j = 0;
-		int[] intArraySorted = new int[24];
-		for(i = 0; i < 24; i++)
+		int[] intArraySorted = intArray;
+		Arrays.sort(intArraySorted);
+		int median;
+		int intmedianPos = 0;
+		median = (int) intArraySorted[intArraySorted.length/2];
+		
+		for(j = 0; j < 24; j++)
 		{
-			while(intArray[i] <= intArraySorted[j]);
+			if(median == intArray[j])
 			{
-				j++;
+				intmedianPos = j;
+				break;
 			}
-			
-			
 		}
+		
 		
 		
 		
@@ -63,7 +68,7 @@ public class Lab2a {
 		System.out.println("The largest value in the array is: " + intLargest + ". [" + intLpos + "]");
 		System.out.println("The second smallest value in the array is: " + int2small + ". [" + intSpos2 + "]");
 		System.out.println("The second largest value in the array is: " + int2large + ". [" + intLpos2 + "]");
-		System.out.println("The median value in the array is: ");
+		System.out.println("The median value in the array is: " + median + ". [" + intmedianPos + "]");
 
 	}
 
