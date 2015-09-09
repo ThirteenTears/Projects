@@ -12,6 +12,7 @@ public class Lab3 {
 		Stock[] myStock = new Stock[100];
 		int intCounter = 0;
 		int i = 0;
+		String strUserInput = "";
 		Stock stockSmallest = new Stock();
 		Stock stockLargest = new Stock();
 		Stock stockVLowest = new Stock();
@@ -45,14 +46,20 @@ public class Lab3 {
 		System.out.println("The stock with the highest price is: " + stockLargest.getDesc());
 		System.out.println("The stock with the lowest volume is: " + stockVLowest.getDesc());
 		
-		
-		
-		
-		
-		
+		strUserInput = JOptionPane.showInputDialog("Please enter a 4 didget Stock Name to search.");
+		strUserInput = strUserInput.toUpperCase();
+		for(i = 0; i < myStock.length && myStock[i] != null; i++)
+		{
+			if(strUserInput.equals(myStock[i].getName()))
+			{
+				System.out.println("\n" + myStock[i].getValue());
+				break;
+			}
+		}
+		if(myStock[i] == null)
+		{
+			System.out.println("\n" + "The stock: " + strUserInput + " does not exist!");
+		}
 		infile.close();
-		
-		
-		
 	}
 }
