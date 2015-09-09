@@ -1,4 +1,9 @@
+import java.util.StringTokenizer;
 
+/*
+ * Lab 3 Written by Caleb Smith 9/9/2015, CS - 250
+ * @author Caleb Smith
+ */
 public class Stock {
 
 	private String name = "";
@@ -6,25 +11,57 @@ public class Stock {
 	private int volume = 0;
 	
 	//Sets all values to default.
-	public void reset()
+	public Stock()
 	{
 		name = "";
 		price = 0;
 		volume = 0;
 	}
-	public void addStock(String names, double prices, int volumes)
+	public Stock(String names, double prices, int volumes)
 	{
 		name = names;
 		price = prices;
 		volume = volumes;
 	}
-	public void addStock2(String input)
+	public Stock(String input)
 	{
-		String[] split = input.split(" ");
-		name = split[0];
-		price = Double.parseDouble(split[1]);
-		volume = Integer.parseInt(split[2]);
+		StringTokenizer stk = new StringTokenizer(input);
+		name = stk.nextToken();
+		price = Double.parseDouble(stk.nextToken());
+		volume = Integer.parseInt(stk.nextToken());
 	}
-	
-	
+	public String getValue()
+	{
+		String strReturn = "The stock " + name + " is priced at $" + price +". There are " + volume + " stocks available.";
+		return strReturn;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public Double getPrice()
+	{
+		return price;
+	}
+	public Integer getVolume()
+	{
+		return volume;
+	}
+	public void setName(String n)
+	{
+		name = n;
+	}
+	public void setPrice(Double d)
+	{
+		price = d;
+	}
+	public void setVolume(Integer i)
+	{
+		volume = i;
+	}
+	public String getDesc()
+	{
+		String strReturn = name + " " + price + " " + volume;
+		return strReturn;
+	}
 }
