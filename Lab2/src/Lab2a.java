@@ -16,11 +16,12 @@ public class Lab2a {
 		int i = 0;
 		int[] intArray = new int[24];
 		Random generator = new Random();
-		
+		//fill array with randomly genereated numbers.
 		for(i = 0; i < 24; i++)
 		{
 			intArray[i] = generator.nextInt(1000);	
 		}
+		//Find smallest, second smallest, largest, and second largest.
 		for(i = 0; i < 24; i++)
 		{
 			if(int2small > intArray[i] && intArray[i] > intSmallest)
@@ -45,6 +46,7 @@ public class Lab2a {
 			}
 			
 		}
+		//Find the median.
 		int j = 0;
 		int[] intArraySorted = intArray;
 		Arrays.sort(intArraySorted);
@@ -60,10 +62,7 @@ public class Lab2a {
 				break;
 			}
 		}
-		
-		
-		
-		
+		//Output Results.
 		System.out.println("The smallest value in the array is: " + intSmallest + ". [" + intSpos + "]");
 		System.out.println("The largest value in the array is: " + intLargest + ". [" + intLpos + "]");
 		System.out.println("The second smallest value in the array is: " + int2small + ". [" + intSpos2 + "]");
@@ -71,5 +70,4 @@ public class Lab2a {
 		System.out.println("The median value in the array is: " + median + ". [" + intmedianPos + "]");
 
 	}
-
 }
