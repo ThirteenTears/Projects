@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 public class AssignmentOneMain {
@@ -5,10 +9,14 @@ public class AssignmentOneMain {
 	 * Assignment 1 Written by Caleb Smith 9/9/2015, CS - 250
 	 */
 	
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) throws FileNotFoundException {
+		//Declare Variables
 		Polynomial poly = new Polynomial();
 		Polynomial[] polyArr = new Polynomial[100];
+		OutputPoly outPoly = new OutputPoly();
+		
+		File inputfile = new File("poly.dat");
+		Scanner infile = new Scanner(inputfile);
 		
 		int intUserSelection = 0;
 		while(1 == 1)
@@ -29,7 +37,12 @@ public class AssignmentOneMain {
 			
 			if(intUserSelection == 2)
 			{
-				System.out.println("Option 2 was selected.");
+				intUserSelection = Integer.parseInt(JOptionPane.showInputDialog("Please enter a polynomial to display."));	
+				String testtest = "";
+				testtest = outPoly.outputPoly(intUserSelection);
+				intUserSelection = 0;
+				System.out.println(testtest);
+				
 			}
 			if(intUserSelection == 3)
 			{
@@ -47,21 +60,6 @@ public class AssignmentOneMain {
 			{
 				System.out.println("Option 6 was selected.");
 			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 		}
-
 	}
-
 }
