@@ -4,7 +4,9 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class OutputPoly {
-	
+	/*
+	 * Reads a specified line from the file, and returns a String with line formatted.
+	 */
 	
 	public String outputPoly(Integer i) throws FileNotFoundException
 	{
@@ -13,8 +15,6 @@ public class OutputPoly {
 		StringTokenizer stk = new StringTokenizer(infile.nextLine());
 		String[] strPoly = new String[40];
 		String strReturn = "";
-		int counter = 0;
-		
 		for(int j = 0; j < 40; j++)
 		{
 			strPoly[j] = "0";
@@ -36,9 +36,6 @@ public class OutputPoly {
 		{
 			strPoly[j] = stk.nextToken();			
 		}
-		
-		
-		
 		for(int j = 1; j <= intTokenCount; j++)
 		{
 			if( j == 1)
@@ -54,10 +51,13 @@ public class OutputPoly {
 				{
 					strReturn = strReturn.concat(" + " + strPoly[l]);
 				}
-				
+				else if(k == 0)
+				{
+					j = intTokenCount;
+				}
 				else
 				{
-					strReturn = strReturn.concat(" - " + strPoly[l]);
+					strReturn = strReturn.concat(" - " + Math.abs(Integer.parseInt(strPoly[l])));
 				}
 			}
 			else if(j % 2 != 0)
@@ -72,11 +72,11 @@ public class OutputPoly {
 				}
 			}
 		}
-		
-		
-		
-		
 		return strReturn;
+	}
+	public int returnArrayPos(int i)
+	{
+		return 99999;
 	}
 	
 }

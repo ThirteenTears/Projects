@@ -38,11 +38,8 @@ public class AssignmentOneMain {
 			if(intUserSelection == 2)
 			{
 				intUserSelection = Integer.parseInt(JOptionPane.showInputDialog("Please enter a polynomial to display."));	
-				String testtest = "";
-				testtest = outPoly.outputPoly(intUserSelection);
+				System.out.println(outPoly.outputPoly(intUserSelection));
 				intUserSelection = 0;
-				System.out.println(testtest);
-				
 			}
 			if(intUserSelection == 3)
 			{
