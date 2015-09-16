@@ -2,16 +2,26 @@ import java.io.FileNotFoundException;
 
 public class Polynomial {
 	public String polynomial = "";
-	OutputPoly outPoly = new OutputPoly();
 	
-	public String evalPoly(int i) throws FileNotFoundException
+	public void Polynomial()
 	{
-		
-		
-		
-		
+		polynomial = "";
+	}
+	public void Polynomial(String s)
+	{
+		polynomial = s;
+	}
+	public String getPolynomial()
+	{
+		return polynomial;
+	}
+	public String evalPoly(int i)
+	{
 		return "test";
 	}
-	
+	public String readPoly(int i)
+	{
+		return "test";
+	}
 	
 }

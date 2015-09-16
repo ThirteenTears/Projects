@@ -14,7 +14,6 @@ public class AssignmentOneMain {
 		Polynomial poly = new Polynomial();
 		Polynomial[] polyArr = new Polynomial[100];
 		OutputPoly outPoly = new OutputPoly();
-		
 		File inputfile = new File("poly.dat");
 		Scanner infile = new Scanner(inputfile);
 		
