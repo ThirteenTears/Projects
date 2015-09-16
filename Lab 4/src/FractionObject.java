@@ -69,6 +69,7 @@ public class FractionObject {
 		String strReturn = strName + ": " + intNumerator + "/" + intDenominator;
 		return strReturn;
 	}
+	//Adds two fractions together and returns a formatted string.
 	public String addFrac(int num1, int num2, int dem1, int dem2)
 	{
 		String strReturn = "";
@@ -81,6 +82,49 @@ public class FractionObject {
 		strReturn = (num3 / GCD) + "/" + (dem3 / GCD);
 		return strReturn;
 	}
+	//Subtracts one fraction from another, and returns a formatted string.
+	public String subFrac(int num1, int num2, int dem1, int dem2)
+	{
+		String strReturn = "";
+		int num3 = 0;
+		int dem3 = 0;
+		int GCD = 0;
+		dem3 = dem1 * dem2;
+		num3 = (num1 * dem2) - (num2 * dem1);
+		GCD = GCD(num3, dem3);
+		
+		GCD = Math.abs(GCD);
+		strReturn = (num3 / GCD) + "/" + (dem3 / GCD);
+		return strReturn;
+	}
+	//Multiplies two fractions together and returns a formatted string.
+	public String multFrac(int num1, int num2, int dem1, int dem2)
+	{
+		String strReturn = "";
+		int num3 = 0;
+		int dem3 = 0;
+		int GCD = 0;
+		dem3 = dem1 * dem2;
+		num3 = (num1 * dem2) * (num2 * dem1);
+		dem3 = dem3 * dem3;
+		GCD = GCD(num3, dem3);
+		strReturn = (num3 / GCD) + "/" + (dem3 / GCD);
+		return strReturn;
+	}
+	//Divides two fractions and returns a formatted string.
+	public String divFrac(int num1, int num2, int dem1, int dem2)
+	{
+		String strReturn = "";
+		int num3 = 0;
+		int dem3 = 0;
+		int GCD = 0;
+		dem3 = dem1 * num2;
+		num3 = num1 * dem2;
+		GCD = GCD(num3, dem3);
+		strReturn = (num3 / GCD) + "/" + (dem3 / GCD);
+		return strReturn;
+	}
+	//Calculates the greatest common denominator.
 	public int GCD(int a, int b)
 	{
 		return b == 0 ? a : GCD(b, a % b);
