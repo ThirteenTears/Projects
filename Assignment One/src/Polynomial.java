@@ -1,5 +1,6 @@
 import java.util.StringTokenizer;
 public class Polynomial {
+<<<<<<< HEAD
 	public String[] arrPoly = new String[21];
 	int counter = 0;
 	public Polynomial(String input)
@@ -70,8 +71,30 @@ public class Polynomial {
 			}
 		}
 		return strReturn;
-	}
+=======
+	public String polynomial = "";
 	
+	public void Polynomial()
+	{
+		polynomial = "";
+	}
+	public void Polynomial(String s)
+	{
+		polynomial = s;
+	}
+	public String getPolynomial()
+	{
+		return polynomial;
+	}
+	public String evalPoly(int i)
+	{
+		return "test";
+	}
+	public String readPoly(int i)
+	{
+		return "test";
+>>>>>>> origin/master
+	}
 	
 }
 
