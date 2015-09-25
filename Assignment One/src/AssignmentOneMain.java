@@ -14,6 +14,10 @@ public class AssignmentOneMain {
 		Polynomial poly = new Polynomial();
 		Polynomial[] polyArr = new Polynomial[100];
 		OutputPoly outPoly = new OutputPoly();
+<<<<<<< HEAD
+=======
+		
+>>>>>>> parent of 165486d... Assignment One Start Over
 		File inputfile = new File("poly.dat");
 		Scanner infile = new Scanner(inputfile);
 		

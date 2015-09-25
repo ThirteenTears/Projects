@@ -1,5 +1,7 @@
-import java.util.StringTokenizer;
+import java.io.FileNotFoundException;
+
 public class Polynomial {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	public String[] arrPoly = new String[21];
 	int counter = 0;
@@ -73,6 +75,19 @@ public class Polynomial {
 		return strReturn;
 =======
 	public String polynomial = "";
+=======
+	public String polynomial = "";
+	OutputPoly outPoly = new OutputPoly();
+	
+	public String evalPoly(int i) throws FileNotFoundException
+	{
+		
+		
+		
+		
+		return "test";
+	}
+>>>>>>> parent of 165486d... Assignment One Start Over
 	
 	public void Polynomial()
 	{
@@ -97,4 +112,3 @@ public class Polynomial {
 	}
 	
 }
-
