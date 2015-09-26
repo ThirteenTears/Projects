@@ -1,9 +1,16 @@
+import java.util.StringTokenizer;
 /*
  * Polynomial Class.
- * 
  * @author Caleb Smith
+ * 
+ * This class stores polynomials in an array. This class contains methods for:
+ * Evaluating
+ * Adding
+ * Subtracting
+ * Multiplying
+ * toString
+ * The highest degree of polynomial accepted is 20.
  */
-import java.util.StringTokenizer;
 public class Polynomial {
 	//Data members.
 	private String strName = "";
