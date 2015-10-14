@@ -5,12 +5,12 @@ public class SavingsAccount extends BankAccount{
 	
 	public SavingsAccount(String s)
 	{
-		strName = s;
+		strFirstName = s;
 	}
 	public String getInfo()
 	{
 		DecimalFormat df = new DecimalFormat();
-		return "This savings account of the owner " + strName + " has a balance of $" + df.format(dblBalance);
+		return "This savings account of the owner " + strFirstName + " has a balance of $" + df.format(dblBalance);
 	}
 	public void calcInterest()
 	{
